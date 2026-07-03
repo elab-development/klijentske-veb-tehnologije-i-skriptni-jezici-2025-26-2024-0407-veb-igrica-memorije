@@ -4,6 +4,7 @@
 html {
   font-family: "Luckiest Guy";
 }
+
 body {
   min-height: 100vh;
   background-image: url("./assets/background.png");
@@ -11,9 +12,9 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  text-shadow: 6px 6px 0 rgba(0, 0, 0, 0.2);
+  text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 .cartoon-shadow {
-  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
 }
