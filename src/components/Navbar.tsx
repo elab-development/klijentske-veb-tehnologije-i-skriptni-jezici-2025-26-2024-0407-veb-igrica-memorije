@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Button from "./Button";
-import { useAuth } from "../auth/Authentication";
+import { useAuth } from "../auth/Authentification";
 
 function Navbar() {
   const navigate = useNavigate();

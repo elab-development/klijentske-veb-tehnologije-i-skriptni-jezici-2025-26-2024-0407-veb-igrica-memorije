@@ -7,7 +7,8 @@ import {
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import { AuthProvider } from "./auth/Authentication";
+import GameSettings from "./pages/GameSettings";
+import { AuthProvider } from "./auth/Authentification";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -15,6 +16,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/game-settings" element={<GameSettings />} />
     </>
   )
 );

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FormField from "../components/FormField";
 import Button from "../components/Button";
-import { useAuth } from "../auth/Authentication";
+import { useAuth } from "../auth/Authentification";
 
 function Login() {
   const navigate = useNavigate();
