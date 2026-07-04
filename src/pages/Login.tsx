@@ -2,9 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FormField from "../components/FormField";
 import Button from "../components/Button";
+import { useAuth } from "../auth/Authentication";
 
 function Login() {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
@@ -13,7 +15,11 @@ function Login() {
       alert("Please enter your name and password.");
       return;
     }
-    navigate("/");
+    if (login(name, password)) {
+      navigate("/");
+    } else {
+      alert("Wrong name or password.");
+    }
   };
 
   return (

@@ -2,9 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FormField from "../components/FormField";
 import Button from "../components/Button";
+import { useAuth } from "../auth/Authentication";
 
 function Register() {
   const navigate = useNavigate();
+  const { register } = useAuth();
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
@@ -18,7 +20,11 @@ function Register() {
       alert("Passwords do not match.");
       return;
     }
-    navigate("/login");
+    if (register(name, password)) {
+      navigate("/login");
+    } else {
+      alert("User already exists.");
+    }
   };
 
   return (
