@@ -1,0 +1,72 @@
+{
+    "animals": [
+        {
+            "name": "bear",
+            "image": "/animals/bear.svg"
+        },
+        {
+            "name": "bird",
+            "image": "/animals/bird.svg"
+        },
+        {
+            "name": "buffalo",
+            "image": "/animals/buffalo.svg"
+        },
+        {
+            "name": "cat",
+            "image": "/animals/cat.svg"
+        },
+        {
+            "name": "cow",
+            "image": "/animals/cow.svg"
+        },
+        {
+            "name": "deer",
+            "image": "/animals/deer.svg"
+        },
+        {
+            "name": "dog",
+            "image": "/animals/dog.svg"
+        },
+        {
+            "name": "elepant",
+            "image": "/animals/elepant.svg"
+        },
+        {
+            "name": "fox",
+            "image": "/animals/fox.svg"
+        },
+        {
+            "name": "goat",
+            "image": "/animals/goat.svg"
+        },
+        {
+            "name": "gorilla",
+            "image": "/animals/gorilla.svg"
+        },
+        {
+            "name": "husky-dog",
+            "image": "/animals/husky-dog.svg"
+        },
+        {
+            "name": "lion",
+            "image": "/animals/lion.svg"
+        },
+        {
+            "name": "pig",
+            "image": "/animals/pig.svg"
+        },
+        {
+            "name": "rabbit",
+            "image": "/animals/rabbit.svg"
+        },
+        {
+            "name": "tiger",
+            "image": "/animals/tiger.svg"
+        },
+        {
+            "name": "walrus",
+            "image": "/animals/walrus.svg"
+        }
+    ]
+}
