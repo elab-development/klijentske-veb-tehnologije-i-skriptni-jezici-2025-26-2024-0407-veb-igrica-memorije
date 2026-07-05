@@ -23,9 +23,23 @@ function Navbar() {
           </Button>
         </>
       ) : (
-        <Button variant="nav" onClick={handleLogout}>
-          Logout
-        </Button>
+        <>
+          <Button variant="nav" onClick={() => navigate("/")}>
+            Game
+          </Button>
+          <Button variant="nav" onClick={() => navigate("/history")}>
+            History
+          </Button>
+          <Button variant="nav" onClick={() => navigate("/profile")}>
+            Profile
+          </Button>
+          <Button variant="nav" onClick={() => navigate("/statistics")}>
+            Statistics
+          </Button>
+          <Button variant="nav" onClick={handleLogout}>
+            Logout
+          </Button>
+        </>
       )}
     </nav>
   );

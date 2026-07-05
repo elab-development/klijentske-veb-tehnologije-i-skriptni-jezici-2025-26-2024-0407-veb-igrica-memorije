@@ -57,7 +57,7 @@ function Game() {
       return;
     }
     const loadCards = async () => {
-      const response = await fetch("/animalsData.json");
+      const response = await fetch("/AnimalsData.json");
       const data = await response.json();
       const animals: Animal[] = data.animals;
 
