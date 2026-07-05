@@ -28,15 +28,15 @@ Chart.register(
 );
 
 Chart.defaults.color = "white";
-Chart.defaults.font.family = '"Luckiest Guy", cursive';
+Chart.defaults.font.family = '"Luckiest Guy"';
 Chart.defaults.font.size = 14;
 
-const repository = new GameResultStorage();
+const storage = new GameResultStorage();
 
-const green = "#16a34a";
-const red = "#dc2626";
-const yellow = "#ca8a04";
-const blue = "#0284c7";
+const green = "#00C950";
+const red = "#FB2C36";
+const yellow = "#fcc800";
+const blue = "#51a2ff";
 
 function Statistics() {
   const navigate = useNavigate();
@@ -57,7 +57,7 @@ function Statistics() {
     );
   }
 
-  const results = repository.getForPlayer(currentUser.getName());
+  const results = storage.getForPlayer(currentUser.getName());
   const wins = results.filter((r) => r.outcome === "win").length;
   const losses = results.filter((r) => r.outcome === "loss").length;
   const perfectGames = results.filter((r) => r.perfect === true).length;
