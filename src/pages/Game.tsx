@@ -4,9 +4,9 @@ import Card from "../components/Card";
 import Button from "../components/Button";
 import { useAuth } from "../auth/Authentification";
 import type { Animal } from "../classes/Animal";
-import { GameResultRepository } from "../classes/GameResultStorage";
+import { GameResultStorage } from "../classes/GameResultStorage";
 
-const resultRepository = new GameResultRepository();
+const resultStorage = new GameResultStorage();
 
 interface GameSettingsState {
   opponent: string;
@@ -88,7 +88,7 @@ function Game() {
       }
       const totalPairs = (settings.cols * settings.rows) / 2;
       const perfect = scores[0] === totalPairs && moves[0] === totalPairs;
-      resultRepository.save({
+      resultStorage.save({
         player: currentUser.getName(),
         opponent: settings.opponent,
         cols: settings.cols,

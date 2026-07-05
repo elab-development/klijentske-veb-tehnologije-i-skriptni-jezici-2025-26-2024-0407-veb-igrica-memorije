@@ -11,6 +11,7 @@ import GameSettings from "./pages/GameSettings";
 import Game from "./pages/Game";
 import History from "./pages/History";
 import { AuthProvider } from "./auth/Authentification";
+import Profile from "./pages/Profile";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,6 +22,7 @@ const router = createBrowserRouter(
       <Route path="/game-settings" element={<GameSettings />} />
       <Route path="/game" element={<Game />} />
       <Route path="/history" element={<History />} />
+      <Route path="/profile" element={<Profile />} />
     </>
   )
 );

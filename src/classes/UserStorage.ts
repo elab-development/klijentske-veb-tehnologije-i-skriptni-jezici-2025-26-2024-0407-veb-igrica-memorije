@@ -8,6 +8,7 @@ export interface IUserStorage {
   setCurrent(user: IUser): void;
   getCurrent(): User | null;
   clearCurrent(): void;
+  rename(oldName: string, newName: string): void;
 }
 
 const USERS_KEY = "users";
@@ -54,5 +55,21 @@ export class UserStorage implements IUserStorage {
 
   clearCurrent(): void {
     localStorage.removeItem(CURRENT_KEY);
+  }
+
+  rename(oldName: string, newName: string): void {
+    const users = this.getAll();
+    const updated = users.map((u) =>
+      u.getName() === oldName ? new User(newName, u.password) : u,
+    );
+    localStorage.setItem(USERS_KEY, JSON.stringify(updated));
+
+    const current = localStorage.getItem(CURRENT_KEY);
+    if (current !== null) {
+      const parsed = JSON.parse(current) as { name: string };
+      if (parsed.name === oldName) {
+        localStorage.setItem(CURRENT_KEY, JSON.stringify({ name: newName }));
+      }
+    }
   }
 }

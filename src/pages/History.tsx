@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import Navbar from "../components/Navbar";
 import { useAuth } from "../auth/Authentification";
-import { GameResultRepository } from "../classes/GameResultStorage";
+import { GameResultStorage } from "../classes/GameResultStorage";
 
-const repository = new GameResultRepository();
+const storage = new GameResultStorage();
 
 const outcomeOptions = ["all", "win", "loss"];
 const gridOptions = ["all", "4x4", "6x4", "6x5"];
@@ -39,7 +39,7 @@ function History() {
     );
   }
 
-  const allResults = repository.getForPlayer(currentUser.getName());
+  const allResults = storage.getForPlayer(currentUser.getName());
 
   const filteredResults = allResults.filter((result) => {
     if (outcomeFilter !== "all" && result.outcome !== outcomeFilter) {

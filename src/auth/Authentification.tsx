@@ -2,16 +2,19 @@ import { createContext, useContext, useState } from "react";
 import type { ReactNode } from "react";
 import { User } from "../classes/User";
 import { UserStorage } from "../classes/UserStorage";
+import { GameResultStorage } from "../classes/GameResultStorage";
 
-interface IAuth {
+interface AuthContextType {
     currentUser: User | null;
     register: (name: string, password: string) => boolean;
     login: (name: string, password: string) => boolean;
     logout: () => void;
+    changeName: (newName: string) => boolean;
 }
 
-const AuthContext = createContext<IAuth | null>(null);
+const AuthContext = createContext<AuthContextType | null>(null);
 const storage = new UserStorage();
+const resultStorage = new GameResultStorage();
 
 function AuthProvider({ children }: { children: ReactNode }) {
     const [currentUser, setCurrentUser] = useState<User | null>(storage.getCurrent());
@@ -39,14 +42,25 @@ function AuthProvider({ children }: { children: ReactNode }) {
         setCurrentUser(null);
     };
 
+    const changeName = (newName: string): boolean => {
+        if (currentUser === null || storage.exists(newName)) {
+            return false;
+        }
+        const oldName = currentUser.getName();
+        storage.rename(oldName, newName);
+        resultStorage.renamePlayer(oldName, newName);
+        setCurrentUser(new User(newName, currentUser.password));
+        return true;
+    };
+
     return (
-        <AuthContext.Provider value={{ currentUser, register, login, logout }}>
+        <AuthContext.Provider value={{ currentUser, register, login, logout, changeName }}>
             {children}
         </AuthContext.Provider>
     );
 }
 
-function useAuth(): IAuth {
+function useAuth(): AuthContextType {
     const context = useContext(AuthContext);
     if (context === null) {
         throw new Error("useAuth must be used inside AuthProvider");
